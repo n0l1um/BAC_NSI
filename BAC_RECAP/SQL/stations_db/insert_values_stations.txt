@@ -1,0 +1,15 @@
+-- les stations
+INSERT INTO STATION(nom_station, ville, region) VALUES
+	("La tramontane catalane", "Leucate", "Occitanie"),
+	("La baie sauvage", "La Torche", "Bretagne"),
+	("La pinède", "Calvi", "Corse");
+
+INSERT INTO SPORT(nom_sport, nom_station, prix) VALUES
+	("Planche a voile", "La tramontane catalane", 1200),
+	("Kitesurf", "La tramontane catalane", 1100),
+	("Plongée", "La baie sauvage", 950);
+
+INSERT INTO CLIENT(client_id, nom_client, prenom_client, mail_client) VALUES
+	(1, "GENEREUX", "Eric", "eric.genereux@mail.fr"),
+	(2, "PIERRE", "Daniel", "daniel.pierre@mail.fr"),
+	(3, "JOLY", "Emilie", "emilie.joly@mail.fr");

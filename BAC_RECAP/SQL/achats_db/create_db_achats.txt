@@ -1,0 +1,29 @@
+CREATE TABLE IF NOT EXISTS CLIENT (
+  numCli int,
+  nomCli text(15),
+  prenomCli text(15),
+  adresseCli text(20),
+  PRIMARY KEY (numCli)
+);
+
+CREATE TABLE IF NOT EXISTS FACTURE (
+  numFac int,
+  dateFac text,
+  numCli int REFERENCES CLIENT (numCli),
+  PRIMARY KEY (numFac)
+  
+);
+
+CREATE TABLE IF NOT EXISTS DETAIL (
+  numFac int references FACTURE(numFac),
+  refProd int REFERENCES PRODUIT (refProd),
+  qte int,
+  PRIMARY KEY (numFac, refProd)
+);
+
+CREATE TABLE IF NOT EXISTS PRODUIT (
+  refProd int,
+  nomProd text(40),
+  puProd Real,
+  PRIMARY KEY (refProd)
+);

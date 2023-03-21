@@ -1,0 +1,35 @@
+CREATE TABLE IF NOT EXISTS STATION (
+	nom_station	TEXT,
+	ville	TEXT,
+	region	TEXT,
+	PRIMARY KEY(nom_station)
+);
+
+CREATE TABLE IF NOT EXISTS SPORT (
+	nom_sport	TEXT,
+	nom_station	TEXT,
+	prix	INT,
+	FOREIGN KEY(nom_station) REFERENCES STATION(nom_station),
+	PRIMARY KEY(nom_sport)
+);
+
+CREATE TABLE IF NOT EXISTS CLIENT (
+	client_id	INT,
+	nom_client	TEXT,
+	prenom_client	TEXT,
+	mail_client	TEXT,
+	PRIMARY KEY(client_id)
+);
+
+CREATE TABLE IF NOT EXISTS SEJOUR (
+	client_id	INT,
+	semaine	TEXT,
+	annee	INT,
+	nom_station	TEXT,
+	nom_sport	TEXT,
+	PRIMARY KEY(nom_station)
+);
+
+
+
+

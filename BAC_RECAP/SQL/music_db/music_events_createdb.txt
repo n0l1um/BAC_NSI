@@ -1,0 +1,60 @@
+CREATE TABLE IF NOT EXISTS MUSICIEN (
+	id_musicien	INTEGER,
+	nom_musicien	TEXT,
+	prenom_musicien	TEXT,
+	genre_musical	INTEGER,
+	PRIMARY KEY(id_musicien)
+);
+
+CREATE TABLE IF NOT EXISTS REPRESENTATION (
+	id_representation	INTEGER,
+	nom_representation	TEXT,
+	lieu	TEXT,
+	PRIMARY KEY("id_representation")
+);
+
+CREATE TABLE IF NOT EXISTS PROGRAMMER (
+	id_programmation	INTEGER,
+	date	TEXT,
+	id_representation	INTEGER,
+	id_musicien	INTEGER,
+	PRIMARY KEY(id_programmation),
+	FOREIGN KEY(id_representation) REFERENCES "REPRESENTATION",
+	FOREIGN KEY(id_musicien) REFERENCES "MUSICIEN"
+);
+
+-- les musiciens 
+INSERT INTO MUSICIEN(id_musicien, nom_musicien, prenom_musicien, genre_musical) values
+	(1, "Brassens","George","Chanson française"),
+	(2, "Hertaux","Yann","Metal industriel");
+
+-- les representations
+INSERT INTO REPRESENTATION(id_representation, nom_representation, lieu) values
+	(1, "La Chanson Française","L'opéra de Paris"),
+	(2, "Le Forum","Vauréal");
+
+-- les programmations
+INSERT INTO PROGRAMMER(id_programmation, date, id_representation, id_musicien) values
+	(1, "23/03/23", 2, 2),
+	(2, "30/07/77", 1, 1);
+
+
+-- GETTING VALUES
+
+-- Request 1
+SELECT * FROM MUSICIEN
+-- Request 2
+SELECT * FROM REPRESENTATION
+-- Request 3
+SELECT * FROM PROGRAMMER
+-- Request 4
+SELECT * FROM MUSICIEN WHERE genre_musical == "Metal industriel"
+-- Request 5
+SELECT MUSICIEN.nom_musicien FROM MUSICIEN
+-- Request 6
+SELECT REPRESENTATION.lieu, MUSICIEN.nom_musicien FROM REPRESENTATION JOIN MUSICIEN ON REPRESENTATION.genre_musical = MUSICIEN.genre_musical WHERE MUSICIEN.nom_musicien = "Hertaux"
+-- Request 7
+SELECT REPRESENTATION.id_representation, MUSICIEN.nom_musicien FROM REPRESENTATION JOIN MUSICIEN ON REPRESENTATION.genre_musical = MUSICIEN.genre_musical WHERE MUSICIEN.nom_musicien = "Brassens"
+-- Request 8
+SELECT PROGRAMMER.id_programmation, MUSICIEN.nom_musicien FROM PROGRAMMER JOIN MUSICIEN ON PROGRAMMER.date = "30/07/77" WHERE MUSICIEN.nom_musicien = "Brassens"
+-- Request 9

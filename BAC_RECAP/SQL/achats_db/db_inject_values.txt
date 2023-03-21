@@ -1,0 +1,41 @@
+-- les clients
+insert into CLIENT(numCli,nomCli, prenomCli,adresseCli) values
+	(1,'MARESQ','Zen','Coulombs'),
+	(2,'AFTON','William','Ohio'),
+	(3,'BARACK','Obama','Ohio'),
+	(4,'LARKIN','John','El Monte');
+
+-- les produits
+insert into PRODUIT(refProd,nomProd,puProd) values 
+	(1, 'Astolfo plushie',12),
+	(2, 'R4',7),
+	(3, 'Tano*C T-shirt',30),
+	(4, 'Harpon pour baleines',45),
+	(5, 'Astolfo genkidama',15),
+	(6, 'Ultimate Metal Gear Revenge Of The Weebs',6),
+	(7, 'Cirno mixtape',4.5),
+	(8, 'Saké',4);
+
+-- les factures 
+insert into FACTURE(numFac, dateFac, numCli) values
+	(1, '14/6/2019',3),
+	(2, '26/12/2019',2),
+	(3, '14/8/2019',4),
+	(4, '14/3/2020',1),
+	(5, '18/4/2020',1);
+	
+
+-- les lignes de factures 
+insert into DETAIL(numFac, refProd, qte) values
+	(1,6,1),
+	(2,1,7),
+	(3,7,1),
+	(4,5,2),
+	(5,6,1);
+
+-- single insert
+INSERT into PRODUIT(refProd, nomProd, puProd) VALUES
+	(9, "Patates trouvées à chernobyl", 2.25);
+
+INSERT into PRODUIT(refProd, nomProd, puProd) VALUES
+	(10, "Galaxia Fracture Terraria: Ultimatum Of The Dieties - NIGHTMARIUM EDITION", 19.99);

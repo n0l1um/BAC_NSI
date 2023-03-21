@@ -1,0 +1,14 @@
+SELECT * FROM client WHERE adresseCli == "Ohio"
+
+
+-- 1. Afficher tous les habitants de dreux: Variant dreux = ohio
+SELECT * from CLIENT WHERE adresseCli == "Ohio"
+
+-- 2. Factures avant 2020
+SELECT * FROM FACTURE WHERE CAST(SUBSTR(dateFac, 6, 9) AS DATE) < 2020
+
+-- 3. Afficher produits
+SELECT * FROM PRODUIT
+
+-- 4. Afficher clients de bananes
+SELECT * FROM FACTURES WHERE 
